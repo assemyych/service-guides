@@ -1,0 +1,686 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "OpenApi Documentation",
+        "description": "Документация для сервиса справочники",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/cities": {
+            "get": {
+                "tags": [
+                    "cities"
+                ],
+                "summary": "List of cities",
+                "description": "Get list of cities",
+                "operationId": "getCities",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Something is wrong"
+                    }
+                }
+            }
+        },
+        "/api/city": {
+            "post": {
+                "tags": [
+                    "cities"
+                ],
+                "summary": "Create city",
+                "description": "Create city",
+                "operationId": "createCity",
+                "requestBody": {
+                    "description": "Data",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "title": {
+                                        "type": "string",
+                                        "example": "Almaty"
+                                    },
+                                    "country_id": {
+                                        "type": "integer",
+                                        "example": "1"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Something is wrong"
+                    }
+                }
+            }
+        },
+        "/api/city/{id}": {
+            "get": {
+                "tags": [
+                    "cities"
+                ],
+                "summary": "Get city",
+                "description": "Get city",
+                "operationId": "getCity",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "city ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        },
+                        "example": "1"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Something is wrong"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "cities"
+                ],
+                "summary": "Update city",
+                "description": "Update city",
+                "operationId": "updateCity",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "city ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Data",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "title": {
+                                        "type": "string"
+                                    },
+                                    "country_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Something is wrong"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "cities"
+                ],
+                "summary": "Delete city",
+                "description": "Delete city",
+                "operationId": "deleteCity",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "city ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Something is wrong"
+                    }
+                }
+            }
+        },
+        "/api/cities-lang": {
+            "get": {
+                "tags": [
+                    "city-lang"
+                ],
+                "summary": "List of city lang",
+                "description": "Get list of city lang",
+                "operationId": "getCitiesLang",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Something is wrong"
+                    }
+                }
+            }
+        },
+        "/api/city-lang": {
+            "post": {
+                "tags": [
+                    "city-lang"
+                ],
+                "summary": "Create city lang",
+                "description": "Create city lang",
+                "operationId": "createCityLang",
+                "requestBody": {
+                    "description": "Data",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "title": {
+                                        "type": "string",
+                                        "example": "english"
+                                    },
+                                    "lang": {
+                                        "type": "string",
+                                        "example": "en"
+                                    },
+                                    "city_id": {
+                                        "type": "integer",
+                                        "example": "1"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Something is wrong"
+                    }
+                }
+            }
+        },
+        "/api/city-lang/{id}": {
+            "get": {
+                "tags": [
+                    "city-lang"
+                ],
+                "summary": "Get city lang",
+                "description": "Get city lang",
+                "operationId": "getCityLang",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "city lang ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        },
+                        "example": "1"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Something is wrong"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "city-lang"
+                ],
+                "summary": "Update city lang",
+                "description": "Update city lang",
+                "operationId": "updateCityLang",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "city lang ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Data",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "title": {
+                                        "type": "string"
+                                    },
+                                    "lang": {
+                                        "type": "string"
+                                    },
+                                    "city_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Something is wrong"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "city-lang"
+                ],
+                "summary": "Delete city lang",
+                "description": "Delete city lang",
+                "operationId": "deleteCityLang",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "city lang ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Something is wrong"
+                    }
+                }
+            }
+        },
+        "/api/countries": {
+            "get": {
+                "tags": [
+                    "countries"
+                ],
+                "summary": "List of countries",
+                "description": "Get list of countries",
+                "operationId": "getCountries",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Something is wrong"
+                    }
+                }
+            }
+        },
+        "/api/country": {
+            "post": {
+                "tags": [
+                    "countries"
+                ],
+                "summary": "Create country",
+                "description": "Create country",
+                "operationId": "createCountry",
+                "requestBody": {
+                    "description": "Data",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "title"
+                                ],
+                                "properties": {
+                                    "title": {
+                                        "type": "string",
+                                        "example": "Kazakhstan"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Something is wrong"
+                    }
+                }
+            }
+        },
+        "/api/country/{id}": {
+            "get": {
+                "tags": [
+                    "countries"
+                ],
+                "summary": "Get country",
+                "description": "Get country",
+                "operationId": "getCountry",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "country ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        },
+                        "example": "1"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Something is wrong"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "countries"
+                ],
+                "summary": "Update country",
+                "description": "Update country",
+                "operationId": "updateCountry",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "country ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Data",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "title"
+                                ],
+                                "properties": {
+                                    "title": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Something is wrong"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "countries"
+                ],
+                "summary": "Delete country",
+                "description": "Delete country",
+                "operationId": "deleteCountry",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "country ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Something is wrong"
+                    }
+                }
+            }
+        },
+        "/api/countries-lang": {
+            "get": {
+                "tags": [
+                    "country-lang"
+                ],
+                "summary": "List of country lang",
+                "description": "Get list of countries lang",
+                "operationId": "getCountriesLang",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Something is wrong"
+                    }
+                }
+            }
+        },
+        "/api/country-lang": {
+            "post": {
+                "tags": [
+                    "country-lang"
+                ],
+                "summary": "Create country lang",
+                "description": "Create country lang",
+                "operationId": "createCountryLang",
+                "requestBody": {
+                    "description": "Data",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "title": {
+                                        "type": "string",
+                                        "example": "english"
+                                    },
+                                    "lang": {
+                                        "type": "string",
+                                        "example": "en"
+                                    },
+                                    "country_id": {
+                                        "type": "integer",
+                                        "example": "1"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Something is wrong"
+                    }
+                }
+            }
+        },
+        "/api/country-lang/{id}": {
+            "get": {
+                "tags": [
+                    "country-lang"
+                ],
+                "summary": "Get country lang",
+                "description": "Get country lang",
+                "operationId": "getCountryLang",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "country lang ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        },
+                        "example": "1"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Something is wrong"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "country-lang"
+                ],
+                "summary": "Update country lang",
+                "description": "Update country lang",
+                "operationId": "updateCountryLang",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "country lang ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Data",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "title": {
+                                        "type": "string"
+                                    },
+                                    "lang": {
+                                        "type": "string"
+                                    },
+                                    "country_id": {
+                                        "type": "integer"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Something is wrong"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "country-lang"
+                ],
+                "summary": "Delete country lang",
+                "description": "Delete country lang",
+                "operationId": "deleteCountryLang",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "country lang ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Something is wrong"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Countries": {
+                "title": "Countries",
+                "description": "Countries model",
+                "xml": {
+                    "name": "Countries"
+                }
+            }
+        }
+    }
+}
