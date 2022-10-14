@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\CountryResourse;
-use App\Models\Countries;
+use App\Models\Country;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
@@ -30,7 +30,7 @@ class CountryController extends Controller
      */
     public function index(): AnonymousResourceCollection
     {
-        $countries = Countries::paginate(10);
+        $countries = Country::paginate(10);
         return CountryResourse::collection($countries);
     }
 
@@ -72,7 +72,7 @@ class CountryController extends Controller
      */
     public function store(Request $request): CountryResourse
     {
-        $country = new Countries();
+        $country = new Country();
         $country->title = $request->title;
         $country->save();
 
@@ -110,7 +110,7 @@ class CountryController extends Controller
      */
     public function show(int $id): CountryResourse
     {
-        $country = Countries::findOrFail($id);
+        $country = Country::findOrFail($id);
         return new CountryResourse($country);
     }
 
@@ -164,7 +164,7 @@ class CountryController extends Controller
      */
     public function update(Request $request, int $id): CountryResourse
     {
-        $country = Countries::findOrFail($id);
+        $country = Country::findOrFail($id);
         $country->title = $request->title;
         $country->save();
 
@@ -201,7 +201,7 @@ class CountryController extends Controller
      */
     public function destroy(int $id): CountryResourse
     {
-        $country = Countries::findOrFail($id);
+        $country = Country::findOrFail($id);
         $country->delete();
 
         return new CountryResourse($country);

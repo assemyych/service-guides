@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\CityResourse;
-use App\Models\Cities;
+use App\Models\City;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
@@ -30,7 +30,7 @@ class CityController extends Controller
      */
     public function index(): AnonymousResourceCollection
     {
-        $cities = Cities::paginate(10);
+        $cities = City::paginate(10);
         return CityResourse::collection($cities);
     }
 
@@ -72,7 +72,7 @@ class CityController extends Controller
      */
     public function store(Request $request): CityResourse
     {
-        $city = new Cities();
+        $city = new City();
         $city->title = $request->title;
         $city->country_id = $request->country_id;
         $city->save();
@@ -111,7 +111,7 @@ class CityController extends Controller
      */
     public function show(int $id): CityResourse
     {
-        $city = Cities::findOrFail($id);
+        $city = City::findOrFail($id);
         return new CityResourse($city);
     }
 
@@ -165,7 +165,7 @@ class CityController extends Controller
      */
     public function update(Request $request, int $id): CityResourse
     {
-        $city = Cities::findOrFail($id);
+        $city = City::findOrFail($id);
         $city->title = $request->title;
         $city->country_id = $request->country_id;
         $city->save();
@@ -203,7 +203,7 @@ class CityController extends Controller
      */
     public function destroy(int $id): CityResourse
     {
-        $city = Cities::findOrFail($id);
+        $city = City::findOrFail($id);
         $city->delete();
 
         return new CityResourse($city);

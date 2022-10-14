@@ -13,6 +13,6 @@ class CityLang extends Model
 
     public function city()
     {
-        return $this->belongsTo(Cities::class);
+        return $this->belongsTo(City::class);
     }
 }

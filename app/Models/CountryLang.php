@@ -13,6 +13,6 @@ class CountryLang extends Model
 
     public function country()
     {
-        return $this->belongsTo(Countries::class);
+        return $this->belongsTo(Country::class);
     }
 }
